@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Streaming</title>
+</head>
+<body>
+    <h1>Audio Streaming</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="audio/*">
+        <button type="submit">Upload</button>
+    </form>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if audio_file %}
+        <h2>Similar Songs</h2>
+        <div class="similar-songs">
+            <!-- Display similar songs here -->
+            {% for song in similar_songs %}
+                <div class="song-box">{{ song }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</body>
+</html>
